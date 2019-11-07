@@ -59,6 +59,7 @@ class RandomWords extends React.Component {
             wordToUse: 0,
             arrayOfWords: ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero"],
             wordDisplay: "zero",
+            number: "",
         };
     }
 
@@ -76,16 +77,20 @@ class RandomWords extends React.Component {
     randomWord() {
         const index = this.state.wordToUse;
         const arraySize = this.state.arrayOfWords.length;
+
         this.setState({
             wordToUse: index + 1,
             wordDisplay: this.state.arrayOfWords[index % arraySize],
         });
     }
 
-
     render() {
         return(
-            <h1>{this.state.wordDisplay}</h1>
+            <div>
+                <hr />
+                <i>This just loops: {this.state.wordDisplay}</i>
+            </div>
+            
         );
     }
 }

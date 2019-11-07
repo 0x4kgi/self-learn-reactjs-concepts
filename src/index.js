@@ -2,24 +2,72 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-const user = {
-    firstName: "First",
-    lastName: "Last"
+function Welcome(props) {
+    return <h1>Hello, {props.name}</h1>;
 }
 
-function formatName(user) {
-    return user.firstName + "-" + user.lastName;
+function formatDate(date) {
+    return date.toLocaleDateString();
 }
 
+function Avatar(props) {
+    return (
+        <img className="Avatar"
+            src={props.user.avatarUrl}
+            alt={props.user.name}
+            width="64"
+        />
+    );
+}
 
-const imageURL = "https://i.ytimg.com/vi/q38Y5FLK63k/maxresdefault.jpg";
+function UserInfo(props) {
+    return (
+        <div className="UserInfo">
+            <Avatar user={props.user} />
+            <div className="UserInfo-name">
+                {props.user.name}
+            </div>
+        </div>
+    );
+}
 
-//you must have a parent tag in order to ad several tags inside
-const combination = (
-    <div>
-        <b>Hello world! ...and {formatName(user)}</b><br />
-        <img src={imageURL} alt="nothing"/>
-    </div>
-);
+function Comment(props) {
+    return (
+        <div className="Comment">
+            <UserInfo user={props.author} />
+            <div className="Comment-text">
+                {props.text}
+            </div>
+            <div className="Comment-date">
+                {formatDate(props.date)}
+            </div>
+        </div>
+    );
+}
 
-ReactDOM.render(combination, document.getElementById('root'));
+const comment = {
+    date: new Date(),
+    text: "Comment Text",
+    author: {
+        avatarUrl: "https://avatars3.githubusercontent.com/u/17591127?s=460&v=4",
+        name: "Some Name",
+    }
+}
+
+function App() {
+    return (
+        <div>
+            <Welcome name="Name1" />
+            <Welcome name="Name2" />
+            <Welcome name={comment.author.name} />
+            <hr />
+            <Comment 
+                date={comment.date}
+                text={comment.text}
+                author={comment.author}
+            />
+        </div>
+    );
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));

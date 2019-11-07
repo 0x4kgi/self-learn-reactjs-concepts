@@ -2,70 +2,32 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function Welcome(props) {
-    return <h1>Hello, {props.name}</h1>;
-}
+class Clock extends React.Component {
+    // class constructor that assigns the initial this.state
+    constructor(props) {
+        //pass props to the base constructor
+        //Class components should always call the base constructor with props
+        super(props);
+        this.state = {
+            date: new Date(),
+        };
+    }
 
-function formatDate(date) {
-    return date.toLocaleDateString();
-}
-
-function Avatar(props) {
-    return (
-        <img className="Avatar"
-            src={props.user.avatarUrl}
-            alt={props.user.name}
-            width="64"
-        />
-    );
-}
-
-function UserInfo(props) {
-    return (
-        <div className="UserInfo">
-            <Avatar user={props.user} />
-            <div className="UserInfo-name">
-                {props.user.name}
+    render() {
+        return (
+            <div>
+                <h1>Hello, World!</h1>
+                <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
             </div>
-        </div>
-    );
-}
-
-function Comment(props) {
-    return (
-        <div className="Comment">
-            <UserInfo user={props.author} />
-            <div className="Comment-text">
-                {props.text}
-            </div>
-            <div className="Comment-date">
-                {formatDate(props.date)}
-            </div>
-        </div>
-    );
-}
-
-const comment = {
-    date: new Date(),
-    text: "Comment Text",
-    author: {
-        avatarUrl: "https://avatars3.githubusercontent.com/u/17591127?s=460&v=4",
-        name: "Some Name",
+        );
     }
 }
+
 
 function App() {
     return (
         <div>
-            <Welcome name="Name1" />
-            <Welcome name="Name2" />
-            <Welcome name={comment.author.name} />
-            <hr />
-            <Comment 
-                date={comment.date}
-                text={comment.text}
-                author={comment.author}
-            />
+            <Clock />     
         </div>
     );
 }

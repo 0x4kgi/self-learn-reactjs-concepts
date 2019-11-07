@@ -90,7 +90,6 @@ class RandomWords extends React.Component {
                 <hr />
                 <i>This just loops: {this.state.wordDisplay}</i>
             </div>
-            
         );
     }
 }

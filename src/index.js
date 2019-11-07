@@ -22,6 +22,9 @@ class Toggle extends React.Component {
         const value = (this.state.loopingValue) + 1;
                     //(v)state is from this.state and it gets the state?
         this.setState(state => ({
+            //also works even without using state as a anon function
+            //just replace state.* with this.state.*
+            
             //yeah, it changes the properties of state here
             //state.isToggledOn due to 'state' is now an anon function i assume
             isToggledOn: !state.isToggledOn,

@@ -66,7 +66,7 @@ class RandomWords extends React.Component {
     componentDidMount() {
         this.arrayIterator = setInterval(
             () => this.randomWord(),
-            1000
+            10
         );
     }
 
@@ -88,7 +88,8 @@ class RandomWords extends React.Component {
         return(
             <div>
                 <hr />
-                <i>This just loops: {this.state.wordDisplay}</i>
+                <i>This just loops: {this.state.wordDisplay}</i><br />
+                <b>The actual text: {this.state.wordToUse}</b>
             </div>
         );
     }
@@ -99,7 +100,7 @@ function App() {
     return (
         <div>
             <Clock />     
-            <RandomWords />    
+            <RandomWords />       
         </div>
     );
 }

@@ -11,8 +11,9 @@ class Toggle extends React.Component {
             loopingValue : 0,
         }
 
-        // This binding is necessary to make `this` work in the callback
-        this.handleClick = this.handleClick.bind(this);
+        //function binding
+        //This binding is necessary to make `this` work in the callback
+        //this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick() {
@@ -26,7 +27,7 @@ class Toggle extends React.Component {
             isToggledOn: !state.isToggledOn,
 
             //this is just my test here
-            loopingValue: value % 21,
+            loopingValue: value % 4,
         }));
     }
 
@@ -35,7 +36,8 @@ class Toggle extends React.Component {
             <div>
                 <h1>{this.state.isToggledOn? 'yeah' : 'no'}</h1>
                 <h2>{this.state.loopingValue}</h2>
-                <button onClick={this.handleClick}>
+                {/*you can just this.handleClick but you have to uncomment the line below function binding*/}
+                <button onClick={(e) => this.handleClick(e)}>
                     Toggle
                 </button>
             </div>

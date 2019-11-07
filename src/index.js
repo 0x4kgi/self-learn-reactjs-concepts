@@ -20,7 +20,7 @@ class Clock extends React.Component {
     componentDidMount() {
         //this.props is set up by React itself and this.state has a special meaning
         //you are free to add additional fields to the class manually 
-        //if you need to store something that doesn’t participate in the data flow (like a timer ID)
+        //if you need to store something that doesn't participate in the data flow (like a timer ID)
         this.timerID = setInterval(
             //call the tick() function every 1000ms
             //by passing an anon function to tick()
@@ -31,7 +31,7 @@ class Clock extends React.Component {
 
     //Called immediately before a component is destroyed
     componentWillUnmount() {
-        //will tear down the timer in the componentWillUnmount() lifecycle method
+        //will tear down the timer in the componentWillUnmount() life cycle method
         clearInterval(this.timerID);
     }
 
@@ -51,11 +51,51 @@ class Clock extends React.Component {
     }
 }
 
+class RandomWords extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            wordToUse: 0,
+            arrayOfWords: ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero"],
+            wordDisplay: "zero",
+        };
+    }
+
+    componentDidMount() {
+        this.arrayIterator = setInterval(
+            () => this.randomWord(),
+            1000
+        );
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.arrayIterator);
+    }
+
+    randomWord() {
+        const index = this.state.wordToUse;
+        const arraySize = this.state.arrayOfWords.length;
+        this.setState({
+            wordToUse: index + 1,
+            wordDisplay: this.state.arrayOfWords[index % arraySize],
+        });
+    }
+
+
+    render() {
+        return(
+            <h1>{this.state.wordDisplay}</h1>
+        );
+    }
+}
+
 
 function App() {
     return (
         <div>
             <Clock />     
+            <RandomWords />    
         </div>
     );
 }

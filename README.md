@@ -1,9 +1,16 @@
-yeah, repo name is literally the contents
+![image](https://i.imgur.com/CjKrwj3.png "Screenshot of this app :)")
 
-branches are the "chapters" of learned things
+## Branch contents
+A Safebooru loader, based of their API. Actually had fun seeing this thing to work.
 
-yeah.
 
-
+## Things I read for this branch
 https://reactjs.org/docs/faq-ajax.html
+
 https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key
+
+https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-component
+
+https://stackoverflow.com/questions/34006333/cant-type-in-react-input-text-field
+
+https://stackoverflow.com/questions/35792275/how-to-force-remounting-on-react-components

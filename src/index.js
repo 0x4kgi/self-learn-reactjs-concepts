@@ -20,7 +20,7 @@ class RenderThumbs extends React.Component {
 
     componentDidMount() {
         this._isMounted = true;
-        
+
         let limit = this.state.limit;
         let tags = (this.state.tags.length === 0) ? '' : this.state.tags;
         //fetch(), no idea what parameters this guy accepts, just following the docs atm
@@ -29,7 +29,7 @@ class RenderThumbs extends React.Component {
             .then(res => res.json())
             .then(
                 //.then() is a promise that accepts 2 parameters,
-                //on "fulfilled" and "onreject"
+                //"on fulfilled" and "on rejected"
                 (result) => {
                     //if the data is a success
                     if(this._isMounted) {
@@ -176,7 +176,9 @@ class SafebooruAjax extends React.Component {
                 <RenderThumbs 
                     limit={this.state.limit} 
                     tags={this.state.tags}
-                    /*random just to force it to render every time */
+                    //random just to force it to render every time
+                    //not really efficient but React is not complaining
+                    //so... :shrug:
                     key={Math.random()}
                 />
             </div>

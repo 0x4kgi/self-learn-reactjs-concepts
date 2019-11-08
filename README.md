@@ -1,8 +1,9 @@
-yeah, repo name is literally the contents
+![image](https://i.imgur.com/vaCEQbe.png)
 
-branches are the "chapters" of learned things
+## Branch Contents
+A clock that ticks, and some other two things that ticks too.
 
-yeah.
 
 
+## not copy pasted from
 https://reactjs.org/docs/state-and-lifecycle.html

@@ -66,7 +66,7 @@ class RandomWords extends React.Component {
     componentDidMount() {
         this.arrayIterator = setInterval(
             () => this.randomWord(),
-            10
+            500
         );
     }
 

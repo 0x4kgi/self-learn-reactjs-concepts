@@ -1,5 +1,6 @@
-yeah, repo name is literally the contents
+## Branch contents
+Some text.
 
-branches are the "chapters" of learned things
-
-yeah.
+## I used these as reference
+https://reactjs.org/docs/hello-world.html
+https://reactjs.org/docs/rendering-elements.html

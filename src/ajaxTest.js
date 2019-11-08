@@ -1,11 +1,11 @@
 import React from 'react';
 
-var newLimit = 0;
-
 class RenderThumbs extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            isLoaded: false,
+            error: null,
             limit: this.props.limit,
             data: [],
         }
@@ -31,11 +31,27 @@ class RenderThumbs extends React.Component {
     }
 
     render() {
+        const {error, isLoaded, data} = this.state;
+
+        if (error) {
+            return (
+                <div className="_errorHandle">
+                    <b>{error}</b>
+                </div>
+            );
+        } else if (!isLoaded) {
+            return (
+                <div className="_loadingHandle">
+                    Loading thumbnails....
+                </div>
+            );
+        }
+
         return (
-            <div>
-                Loaded images<br />
-                <div className="imageGallery">
-                    {this.state.data.map(item => (
+            <div className="_imageGallery">
+                Loaded {data.length} images<br />
+                <div className="_images">
+                    {data.map(item => (
                         <img src={item.preview_file_url} alt={item.id} />
                     ))}
                 </div>
@@ -49,12 +65,8 @@ class SafebooruAjax extends React.Component {
         super(props);
 
         this.state = {
+            defaultLimit: 10,
             limit: 5,
-
-            error: null,
-            isLoaded: false,
-
-            data: [],
         };
     }
 
@@ -79,35 +91,29 @@ class SafebooruAjax extends React.Component {
 
     buttonClick() {
         this.setState({
-            limit: newLimit,
+            limit: this.newLimit,
         });
     }
 
     limitInputChange(e) {
-        newLimit = e.target.value;
+        this.newLimit = e.target.value;
     }
 
     render() {
         var toggles = (
-            <div>
+            <div className="_inputHolder">
                 <input type="text" onChange={(e) => this.limitInputChange(e)}/>
                 <button onClick={(e) => this.buttonClick(e)}>Change limit</button>
             </div>
         )
 
-        if(this.state.error) {
-            return <div>{toggles}<br />{this.state.error}</div>;
-        } else if (!this.state.isLoaded) {
-            return <div>{toggles}<br />Loading....</div>;
-        } else {
-            return (
-                <div>
-                    {toggles}
-                    <RenderThumbs limit={this.state.limit} key={this.state.limit}/>
-                </div>
-                
-            );
-        }
+        return (
+            <div className="_AjaxApplication">
+                {toggles}
+                <RenderThumbs limit={this.state.limit} key={this.state.limit}/>
+            </div>
+            
+        );
     }
 }
 

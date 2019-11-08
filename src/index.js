@@ -27,6 +27,7 @@ class WebpageRender extends React.Component {
                 <hr />
                 <div>
                     <small>From ajaxTest.js</small><br/>
+                    <b>Branch <a href="https://github.com/0x4kgi/self-learn-reactjs-concepts/tree/4/Ajax">4/Ajax</a> has more features!</b><br />
                     <SafebooruAjax />
                 </div>
             </div>

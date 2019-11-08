@@ -19,6 +19,7 @@ yeah. :)
  ## Installation... (i think)
  - clone
  - cd to this repository on node.js cli
+ - `npm install`
  - `npm start`
 
 

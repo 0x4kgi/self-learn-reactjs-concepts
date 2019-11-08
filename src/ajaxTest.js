@@ -107,6 +107,7 @@ class SafebooruAjax extends React.Component {
                     type="text" 
                     onChange={(e) => this.limitInputChange(e)} 
                     placeholder="enter how many images to load"
+                    defaultValue="5"
                 />
                 <button onClick={(e) => this.buttonClick(e)}>Change limit</button>
             </div>

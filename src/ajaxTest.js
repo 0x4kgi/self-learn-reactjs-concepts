@@ -66,7 +66,7 @@ class SafebooruAjax extends React.Component {
 
         this.state = {
             defaultLimit: 10,
-            limit: 5,
+            limit: 10,
         };
     }
 
@@ -102,7 +102,11 @@ class SafebooruAjax extends React.Component {
     render() {
         var toggles = (
             <div className="_inputHolder">
-                <input type="text" onChange={(e) => this.limitInputChange(e)}/>
+                <input 
+                    type="text" 
+                    onChange={(e) => this.limitInputChange(e)} 
+                    placeholder="enter how many images to load"
+                />
                 <button onClick={(e) => this.buttonClick(e)}>Change limit</button>
             </div>
         )

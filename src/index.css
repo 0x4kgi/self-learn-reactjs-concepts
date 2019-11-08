@@ -12,4 +12,15 @@ code {
     monospace;
 }
 
+.topPage {
+  font-family: monospace;
+  width: 100%;
+  height: 50px;
+  background-color: azure;
+  color: black;
+  text-align: center;
+  font-size: x-large;
+  margin: auto;
+}
+
 

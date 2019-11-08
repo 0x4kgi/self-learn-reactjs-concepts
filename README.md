@@ -1,3 +1,5 @@
+## Intro
+
 yeah, repo name is literally the contents
 
 branches are the "chapters" of learned things
@@ -11,3 +13,8 @@ yeah.
  - 2/State-and-Lifecycle: displays a clock where it ticks per second
  - 3/Events: button that does something simple
  - 4/Ajax: pulls data from safebooru.donmai.us (this is an api that I find simple to use, haha)
+ 
+ ## Installation... (i think)
+ - clone
+ - cd to this repository on node.js cli
+ - `npm start`

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Hello from './hello.js';
 import Clock from './clock.js';
+import Toggle from './trigger.js';
 
 class WebpageRender extends React.Component {    
     render() {
@@ -19,7 +20,8 @@ class WebpageRender extends React.Component {
                 </div>
                 <hr />
                 <div>
-                    
+                    <small>From trigger.js</small><br/>
+                    <Toggle />
                 </div>
             </div>
         );

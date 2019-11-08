@@ -102,6 +102,7 @@ class SafebooruAjax extends React.Component {
     render() {
         var toggles = (
             <div className="_inputHolder">
+                Limit: (max 200)
                 <input 
                     type="text" 
                     onChange={(e) => this.limitInputChange(e)} 

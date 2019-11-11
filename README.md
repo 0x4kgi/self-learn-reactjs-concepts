@@ -16,3 +16,5 @@ https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-com
 https://stackoverflow.com/questions/34006333/cant-type-in-react-input-text-field
 
 https://stackoverflow.com/questions/35792275/how-to-force-remounting-on-react-components
+
+https://stackoverflow.com/questions/36985738/how-to-unmount-unrender-or-remove-a-component-from-itself-in-a-react-redux-typ

@@ -1,100 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-class RenderThumbs extends React.Component {
-    //https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-component
-    _isMounted = false;
-    //construct thingies, basic stuff
-    constructor(props) {
-        super(props);
-
-        //properties to change later.....
-        this.state = {
-            isLoaded: false,
-            error: null,
-            limit: this.props.limit,
-            tags: this.props.tags,
-            data: [],
-        }
-    }
-
-    componentDidMount() {
-        this._isMounted = true;
-
-        let limit = this.state.limit;
-        let tags = (this.state.tags.length === 0) ? '' : this.state.tags;
-        //fetch(), no idea what parameters this guy accepts, just following the docs atm
-        fetch('https://safebooru.donmai.us/posts.json?tags=' + tags + '&limit=' + limit)
-            //converts string received to a JSON object
-            .then(res => res.json())
-            .then(
-                //.then() is a promise that accepts 2 parameters,
-                //"on fulfilled" and "on rejected"
-                (result) => {
-                    //if the data is a success
-                    if(this._isMounted) {
-                        this.setState({
-                            isLoaded: true,
-                            data: result,
-                        });
-                    }
-                    
-                },
-                (error) => {
-                    //you must have an error catch to provide feedback,
-                    //or not and just let it fail silently
-                    //or catch(), mentioned in the docs
-                    this.setState({
-                        isLoaded: true,
-                        error,
-                    });
-                }
-            );
-    }
-
-    componentWillUnmount() {
-        this._isMounted = false;
-    }
-
-    render() {
-        const {error, isLoaded, data, tags} = this.state;
-
-        if (error) {
-            return (
-                <div className="_errorHandle">
-                    <b>{error}</b>
-                </div>
-            );
-        } else if (!isLoaded) {
-            return (
-                <div className="_loadingHandle">
-                    Loading thumbnails....
-                </div>
-            );
-        }
-
-        let status = '';
-        if (tags.length === 0) {
-            status = 'Showing the most recent posts uploaded'
-        } else {
-            status = <span>Images with <i>{tags}</i> tags</span>;
-        }
-
-        return (
-            <div className="_imageGallery">
-                Loaded {data.length} images<br />
-                {status}<br />
-                <div className="_images">
-                    {data.map(item => (
-                        <a href={"https://safebooru.donmai.us/posts/" + item.id} target="_new" key={'link'+item.id}>
-                            <img src={item.preview_file_url} alt={item.id} key={'image'+item.id}/>
-                        </a>
-                    ))}
-                </div>
-            </div>
-        );
-    }
-}
+import RenderThumbs from './imageThumbnails.js';
 
 class SafebooruAjax extends React.Component {
     constructor(props) {
@@ -102,7 +9,9 @@ class SafebooruAjax extends React.Component {
 
         this.state = {
             limit: 10,
-            tags: '',
+            tags: "scenery no_human",
+            pageNumber: 1,
+            showNext: true,
         };
     }
 
@@ -127,25 +36,60 @@ class SafebooruAjax extends React.Component {
             //used as onChange function of the input below.
 
             tags: document.getElementById('tagsInput').value,
+
+            pageNumber: 1,
+
+            showNext: true,
         });
+    }
+
+    turnPage(value) {
+        this.setState({
+            pageNumber: this.state.pageNumber + value,
+        });
+    }
+
+    pageCountHandle() {
+        if (this.state.showNext) {
+            this.setState({
+                showNext: false,
+            });
+        }
+        
     }
 
     // limitInputChange(e) {
     //     this.newLimit = e.target.value;
     // }
 
+    // handleTextBoxChange(e, from) {
+    //     let stateObject = {};
+    //     if (from === 'tags') {
+    //         stateObject = {
+    //             tags: e.target.value,
+    //         }
+    //     } else if (from === 'limit') {
+    //         stateObject = {
+    //             limit: e.target.value,
+    //         }
+    //     }
+
+    //     this.setState(stateObject);
+    // }
+
     render() {
-        var toggles = (
+        let toggles = (
             <div className="_inputHolder">
-                Tags: 
+                Tags:<br />
                 <input 
                     id="tagsInput"
                     type="text"
                     placeholder="enter tags eg: amagi_(azur_lane)"
-                    style={{width: '20%'}}
                     defaultValue="scenery no_human"
-                />(maximum of 2, API limit)<br />
-                Number of images: 
+                    //value={this.state.tags}
+                    //onChange={(e) => this.handleTextBoxChange(e, 'tags')}
+                /><br />
+                Number of images:<br /> 
                 <input
                     id="limitInput" 
                     type="text" 
@@ -155,34 +99,53 @@ class SafebooruAjax extends React.Component {
                         onChange={(e) => this.limitInputChange(e)} 
                     */
                     placeholder="enter how many images to load"
-                    style={{width: '10%'}}
-                    defaultValue="5"
-                />(maximum of 200, API limit)<br />
-                <button onClick={(e) => this.buttonClick(e)}>Load (how do I word this?)</button>
+                    defaultValue="10"
+                    //value={this.state.limit}
+                    //onChange={(e) => this.handleTextBoxChange(e, 'limit')}
+                /><br />
+                <button onClick={(e) => this.buttonClick(e)} style={{width:'100%'}}>Load</button>
             </div>
-        )
+        );
+
+        let prevButton = (this.state.pageNumber > 1)
+            && <button onClick={(e) => this.turnPage(-1)}>&lt;</button>;
+        let nextButton = ((this.state.pageNumber) && this.state.showNext)
+            && <button onClick={(e) => this.turnPage(1)}>&gt;</button>;     
+
+
+        let pages = (
+            <div className="_pageIndicator">
+                page: {prevButton}
+                {this.state.pageNumber}
+                {nextButton}
+            </div>
+        );
 
         return (
             <div className="_AjaxApplication">
-                {toggles}
-                {/*
-                This is a class that actually shows things.
-                
-                To have a new instance of this class, you need to update the key={}.
+                <div className="aside">
+                    {toggles}
+                </div>
+                <div className="main-content">
+                    <RenderThumbs 
+                        limit={this.state.limit} 
+                        tags={this.state.tags}
+                        page={this.state.pageNumber}
+                        buttons={pages}
+                        //random just to force it to render every time
+                        //not really efficient but React is not complaining
+                        //so... :shrug:
+                        key={Math.random()}
 
-                other than that, the other properties are being passed to the class                
-
-                 */}
-                <RenderThumbs 
-                    limit={this.state.limit} 
-                    tags={this.state.tags}
-                    //random just to force it to render every time
-                    //not really efficient but React is not complaining
-                    //so... :shrug:
-                    key={Math.random()}
-                />
-            </div>
-            
+                        //letting the child use parent function by passing it
+                        checkNext={() => this.pageCountHandle()}
+                    />
+                    <div className="bottom-bar">
+                        <hr />
+                        {pages}
+                    </div>  
+                </div>        
+            </div>            
         );
     }
 }

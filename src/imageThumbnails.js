@@ -11,7 +11,7 @@ class RenderThumbs extends React.Component {
         this.state = {
             isLoaded: false,
             error: null,
-            limit: this.props.limit,
+            limit: this.props.limit > 200 ? 200 : this.props.limit,
             tags: this.props.tags,
             page: this.props.page,
             data: [],
@@ -114,7 +114,9 @@ class RenderThumbs extends React.Component {
         
         return (
             <div className="_imageGallery">
-                Loaded {data.length} {status} (page: {this.state.page})<br />
+                <div className="top-bar">
+                    Loaded {data.length} {status} (page: {this.state.page})
+                </div>
                 <div className="_images">
                     {data.map(item => (
                         <a 

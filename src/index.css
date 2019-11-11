@@ -54,3 +54,7 @@ img:hover {
   position: sticky;
   bottom: 0;
 }
+
+.tag-link {
+  text-decoration: none;
+}

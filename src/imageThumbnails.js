@@ -94,7 +94,20 @@ class RenderThumbs extends React.Component {
         if (tags.length === 0) {
             status = 'Showing the most recent posts uploaded'
         } else {
-            status = <span>images with <i>{tags}</i> tags</span>;
+            let tagGroup = tags.split(' ');
+            let tagsWithLinks = tagGroup.map(item => (
+                <span key={`tag${item}`}>
+                    <a 
+                        href={`https://safebooru.donmai.us/posts?tags=${item}`}
+                        target="_new"
+                        
+                        className="tag-link"
+                    >
+                        {item}
+                    </a>&nbsp;
+                </span>                
+            ));
+            status = <span>images with <i>{tagsWithLinks}</i> tags</span>;
         }
 
         if(data.length < this.state.limit) this.props.checkNext();

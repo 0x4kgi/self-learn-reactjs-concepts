@@ -43,7 +43,7 @@ class SafebooruAjax extends React.Component {
             showNext: true,
             loaded: false,
         });
-    }
+    }x
 
     turnPage(value) {
         this.setState({
@@ -122,7 +122,7 @@ class SafebooruAjax extends React.Component {
             && <button onClick={(e) => this.turnPage(1)}>&gt;</button>;     
 
 
-        let pages = (this.state.loaded) && (
+        let pages =  (
             <div className="_pageIndicator">
                 page: {prevButton}
                 {this.state.pageNumber}
@@ -146,8 +146,8 @@ class SafebooruAjax extends React.Component {
                         key={Math.random()}
 
                         //letting the child use parent function by passing it
-                        checkNext={() => this.pageCountHandle()}
-                        finishedLoading={() => this.thumbsLoaded()}
+                        //checkNext={() => this.pageCountHandle()}
+                        //finishedLoading={() => this.thumbsLoaded()}
                     />
                     <div className="bottom-bar">
                         <hr />

@@ -145,6 +145,7 @@ class QueryDisplay extends React.Component {
         const style = {margin: "5px", height:"100px", border: "1px solid black"};
 
         if (type === 'repositories') {
+            const maxLength = 300;
             output = (ts.data.map(item => (
                 <div key={item.id} style={style}>
                     <div style={{float: "left"}}>
@@ -152,7 +153,13 @@ class QueryDisplay extends React.Component {
                     </div>
                     <div>
                         <b>{item.full_name}</b><a href={item.html_url} target="_new">=&gt;</a><br />
-                        <small>{item.description}</small><br/>
+                        <small>
+                            {
+                                (item.description.length > maxLength)
+                                    ? item.description.substring(0, maxLength - 3) + '...'
+                                    : item.description
+                            }
+                        </small><br/>
                         <small>
                             stars: {item.stargazers_count} - 
                             watchers: {item.watchers_count} -

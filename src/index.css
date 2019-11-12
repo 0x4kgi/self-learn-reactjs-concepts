@@ -19,7 +19,32 @@ code {
 
 .top-nav {
   text-align: center;
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
 
+.app-box {
+  overflow-y: auto;
+  height: 85vh;
+  border: thin solid black;
+  padding: 5px;
+  margin: auto;
+}
+
+img.thumbnails {
+  height: 90px;
+  margin: 5px 5px
+}
+
+img.thumbnails:hover {
+  border: thin solid blue;
+}
+
+
+
+.text-center {
+  text-align: center;
 }
 
 

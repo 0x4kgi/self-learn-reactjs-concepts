@@ -1,6 +1,7 @@
 import React from 'react';
 
 class RenderThumbs extends React.Component {
+    isMounted = false;
     constructor(props) {
         super(props);
         this.state = {
@@ -12,14 +13,18 @@ class RenderThumbs extends React.Component {
     }
 
     componentDidMount() {
+        this.isMounted = true;
         fetch('https://safebooru.donmai.us/posts.json?tags=scenery&limit=' + this.state.limit)
             .then(res => res.json())
             .then(
                 (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        data: result,
-                    });
+                    if (this.isMounted) {
+                        this.setState({
+                            isLoaded: true,
+                            data: result,
+                        });
+                    }
+                    
                 },
                 (error) => {
                     this.setState({
@@ -28,6 +33,10 @@ class RenderThumbs extends React.Component {
                     });
                 }
             );
+    }
+
+    componentWillUnmount() {
+        this.isMounted = false;
     }
 
     render() {
@@ -48,7 +57,7 @@ class RenderThumbs extends React.Component {
         }
 
         return (
-            <div className="_imageGallery">
+            <div className="imageGallery">
                 Loaded {data.length} images<br />
                 <div className="_images">
                     {data.map(item => (

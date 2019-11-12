@@ -142,7 +142,7 @@ class QueryDisplay extends React.Component {
         const type = ts.type;
         let output = null;
         
-        const style = {margin: "5px", height:"80px", border: "1px solid black"};
+        const style = {margin: "5px", height:"100px", border: "1px solid black"};
 
         if (type === 'repositories') {
             output = (ts.data.map(item => (
@@ -151,8 +151,14 @@ class QueryDisplay extends React.Component {
                         <img src={item.owner.avatar_url} alt={item.owner.id} width="75px"/> 
                     </div>
                     <div>
-                       <b>{item.full_name}</b><a href={item.html_url} target="_new">=&gt;</a><br />
-                       <small>{item.description}</small>
+                        <b>{item.full_name}</b><a href={item.html_url} target="_new">=&gt;</a><br />
+                        <small>{item.description}</small><br/>
+                        <small>
+                            stars: {item.stargazers_count} - 
+                            watchers: {item.watchers_count} -
+                            forks: {item.forks_count} - 
+                            open issues: {item.open_issues}
+                        </small>
                     </div>                   
                 </div>                    
             )));

@@ -12,6 +12,7 @@ class SafebooruAjax extends React.Component {
             tags: "scenery no_human",
             pageNumber: 1,
             showNext: true,
+            loaded: false,
         };
     }
 
@@ -40,6 +41,7 @@ class SafebooruAjax extends React.Component {
             pageNumber: 1,
 
             showNext: true,
+            loaded: false,
         });
     }
 
@@ -54,8 +56,15 @@ class SafebooruAjax extends React.Component {
             this.setState({
                 showNext: false,
             });
+        }        
+    }
+
+    thumbsLoaded() {
+        if (!this.state.loaded) {
+            this.setState({
+                loaded: true,
+            });
         }
-        
     }
 
     // limitInputChange(e) {
@@ -113,7 +122,7 @@ class SafebooruAjax extends React.Component {
             && <button onClick={(e) => this.turnPage(1)}>&gt;</button>;     
 
 
-        let pages = (
+        let pages = (this.state.loaded) && (
             <div className="_pageIndicator">
                 page: {prevButton}
                 {this.state.pageNumber}
@@ -131,7 +140,6 @@ class SafebooruAjax extends React.Component {
                         limit={this.state.limit} 
                         tags={this.state.tags}
                         page={this.state.pageNumber}
-                        buttons={pages}
                         //random just to force it to render every time
                         //not really efficient but React is not complaining
                         //so... :shrug:
@@ -139,6 +147,7 @@ class SafebooruAjax extends React.Component {
 
                         //letting the child use parent function by passing it
                         checkNext={() => this.pageCountHandle()}
+                        finishedLoading={() => this.thumbsLoaded()}
                     />
                     <div className="bottom-bar">
                         <hr />

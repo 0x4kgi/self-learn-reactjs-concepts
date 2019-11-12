@@ -8,7 +8,8 @@ branches are the "chapters" of learned things
 
 yeah. :)
 
-## Branches are:
+## Branches are
+
  - [Master][0]: combination of everything in one page
  - [0/Hello-World][1]: Just a simple output of a string
  - [1/Basic-Functions][2]: functions()
@@ -16,11 +17,16 @@ yeah. :)
  - [3/Events][4]: button that does something simple
  - [4/Ajax][5]: pulls data from safebooru.donmai.us (this is an api that I find simple to use, haha)
  
- ## Installation... (i think)
+## Installation... (i think)
+
  - clone
  - cd to this repository on node.js cli
  - `npm install`
  - `npm start`
+
+## Extra readings
+
+https://developer.github.com/v3/search/#search-users
 
 
 [0]: https://github.com/glnl/self-learn-reactjs-concepts/tree/master

@@ -10,7 +10,6 @@ class GitHubUsers extends React.Component {
             search: "",
             type: "repositories",
             sort: "stars",
-            text: "no updateplz",
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);

@@ -111,7 +111,7 @@ class RenderThumbs extends React.Component {
         }
 
         if((data.length < this.state.limit) || data.length === 0) this.props.checkNext();
-        this.props.finishedLoading();
+        //this.props.finishedLoading();
         return (
             <div className="_imageGallery">
                 <div className="top-bar">

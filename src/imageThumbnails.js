@@ -23,7 +23,7 @@ class RenderThumbs extends React.Component {
 
         let limit = this.state.limit;
         let tags = (this.state.tags.length === 0) ? '' : this.state.tags;
-        let page = this.state.page;
+        let page = (this.state.page < 1) ? 1 : this.state.page;
 
         let apiUrl = 'https://safebooru.donmai.us/posts.json?tags=' + tags + '&limit=' + limit + '&page=' + page;
 
@@ -110,8 +110,8 @@ class RenderThumbs extends React.Component {
             status = <span>images with <i>{tagsWithLinks}</i> tags</span>;
         }
 
-        if(data.length < this.state.limit) this.props.checkNext();
-        
+        if((data.length < this.state.limit) || data.length === 0) this.props.checkNext();
+        this.props.finishedLoading();
         return (
             <div className="_imageGallery">
                 <div className="top-bar">
@@ -132,5 +132,11 @@ class RenderThumbs extends React.Component {
         );        
     }
 }
+
+RenderThumbs.defaultProps = {
+    limit: 10,
+    tags: "scenery no_human",
+    page: 1,
+};
 
 export default RenderThumbs;

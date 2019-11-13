@@ -16,6 +16,7 @@ yeah. :)
  - [2/State-and-Lifecycle][3]: displays a clock where it ticks per second
  - [3/Events][4]: button that does something simple
  - [4/Ajax][5]: pulls data from safebooru.donmai.us (this is an api that I find simple to use, haha)
+ - [5/Forms][6]: simple form
  
 ## Installation... (i think)
 
@@ -37,3 +38,4 @@ https://reactjs.org/docs/forms.html
 [3]: https://github.com/0x4kgi/self-learn-reactjs-concepts/tree/2/State-and-Lifecycle
 [4]: https://github.com/0x4kgi/self-learn-reactjs-concepts/tree/3/Events
 [5]: https://github.com/0x4kgi/self-learn-reactjs-concepts/tree/4/Ajax
+[6]: https://github.com/0x4kgi/self-learn-reactjs-concepts/tree/5/Forms

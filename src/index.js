@@ -6,7 +6,7 @@ import {
     Route,
     Link,
     useRouteMatch,
-    useParams
+    //useParams
   } from "react-router-dom";
 import './index.css';
 

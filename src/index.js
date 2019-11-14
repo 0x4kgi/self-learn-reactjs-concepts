@@ -28,9 +28,9 @@ class WebpageRender extends React.Component {
                     </div>
                     <div className='base-div'>
                         <Switch>
-                            <Route path={'/app'}><Apps /></Route>
-                            <Route path={'/about'}><About /></Route>
-                            <Route path={'/'}><NoneSelected /></Route>
+                            <Route path={`${path}app`}><Apps /></Route>
+                            <Route path={`${path}about`}><About /></Route>
+                            <Route path={`${path}`}><NoneSelected /></Route>
                         </Switch>
                     </div>
                 </Router>

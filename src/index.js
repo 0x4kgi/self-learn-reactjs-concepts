@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-    BrowserRouter as Router,
+    //BrowserRouter as Router, //if the server has the page at the link, use this
+    HashRouter as HRouter,  //if your app only relies on client side rendering, use this
     Switch,
     Route,
     Link,
@@ -20,7 +21,7 @@ class WebpageRender extends React.Component {
     render() {
         return (
             <div className='main-div'>
-                <Router>
+                <HRouter>
                     <div className='topNav'>
                         <Link to='/app'>App</Link>
                         <Link to='/about'>About</Link>
@@ -32,7 +33,7 @@ class WebpageRender extends React.Component {
                             <Route path='/'><NoneSelected /></Route>
                         </Switch>
                     </div>
-                </Router>
+                </HRouter>
             </div>
         );
     }
@@ -40,7 +41,7 @@ class WebpageRender extends React.Component {
 
 function Apps() {
     let match = useRouteMatch();
-
+    console.log(match);
     return (
         <div className='row'>
             <div className='column side'>

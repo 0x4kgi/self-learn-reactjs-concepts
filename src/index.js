@@ -16,73 +16,82 @@ import Toggle from './local/trigger.js';
 import SafebooruAjax from './ajax/ajaxTest.js';
 import GitHubUsers from './ajax/githubApi.js';
 
-class WebpageRender extends React.Component {    
+class WebpageRender extends React.Component {
     render() {
         return (
-            <div className="main-div">
+            <div className='main-div'>
                 <Router>
-                    <div className="topNav">
-                        <Link to="/app">App</Link>
-                        <Link to="/about">About</Link>
+                    <div className='topNav'>
+                        <Link to='/app'>App</Link>
+                        <Link to='/about'>About</Link>
                     </div>
-                    <div className="base-div">
+                    <div className='base-div'>
                         <Switch>
-                            <Router path="/app">
-                                <Apps/>
-                            </Router>
-                            <Router path="/about">
-                                <About />
-                            </Router>
-                            <Router path="/"><About /></Router>
-                        </Switch>                   
+                            <Route path='/app'><Apps /></Route>
+                            <Route path='/about'><About /></Route>
+                            <Route path='/'><NoneSelected /></Route>
+                        </Switch>
                     </div>
-                </Router>                
+                </Router>
             </div>
         );
     }
 }
 
-function Apps(props) {
-    let base = '/app';
-    return(
-        <div className="row">
-        <div className="column side">
-            <b>text outputs:</b>
-            <ol>
-                <li><Link to={`${base}/hello`}>hello.js</Link></li>
-                <li><Link to={`${base}/clock`}>clock.js</Link></li>
-                <li><Link to={`${base}/trigger`}>trigger.js</Link></li>
-            </ol>              
-            <b>api calls:</b>
-            <ol>    
-                <li><Link to={`${base}/safebooru`}>ajaxTest.js</Link></li>
-                <li><Link to={`${base}/github`}>githubApi.js</Link></li>
-            </ol>                    
+function Apps() {
+    let match = useRouteMatch();
+
+    return (
+        <div className='row'>
+            <div className='column side'>
+                <b>Static Outputs</b>
+                <ol>
+                    <li><Link to={`${match.url}/hello`}>String output</Link></li>
+                    <li><Link to={`${match.url}/clock`}>Ticking Clock</Link></li>
+                </ol>
+                <b>On Events</b>
+                <ol>
+                    <li><Link to={`${match.url}/toggle`}>Toggle button</Link></li>
+                </ol>
+                <b>API Requests</b>
+                <ol>
+                    <li><Link to={`${match.url}/safebooru`}>Safebooru</Link></li>
+                    <li><Link to={`${match.url}/github`}>GitHub</Link></li>
+                </ol>
+            </div>
+            <div className='column middle'>
+                <Switch>
+                    <Route path={`${match.path}/hello`}><Hello /></Route>
+                    <Route path={`${match.path}/clock`}><Clock /></Route>
+                    <Route path={`${match.path}/toggle`}><Toggle /></Route>
+                    <Route path={`${match.path}/safebooru`}><SafebooruAjax /></Route>
+                    <Route path={`${match.path}/github`}><GitHubUsers /></Route>
+                    <Route path={match.path}><NoneSelected /></Route>                    
+                </Switch>
+            </div>
         </div>
-        <div className="column middle outline scroll">                    
-            <Switch>
-                <Route path={`${base}/:app`}><App /></Route>
-                <Route path={`${base}`}><i>Select a page from the links at the side</i></Route>
-            </Switch>                     
-        </div> 
-        </div>                                       
     );
-}
-
-function App() {
-    let { app } = useParams();
-
-    if      (app === 'hello')       return <Hello />
-    else if (app === 'clock')       return <Clock />
-    else if (app === 'trigger')     return <Toggle />
-    else if (app === 'safebooru')   return <SafebooruAjax />
-    else if (app === 'github')      return <GitHubUsers />
-    else                            return <i>Select a Topic</i>
 }
 
 function About() {
     return (
-        <b>HI</b>
+        <div className='row'>
+            <div className='column side'>
+                <b>List Header</b>
+                <ol>
+                    <li>there are no links here :)</li>
+                </ol>                
+            </div>
+            <div className='column middle'>
+                A ReactJS web app that was made by me to practice ReactJS.
+            </div>
+        </div>
+    );
+}
+
+function NoneSelected() {
+    return (
+        <div>Select something by clicking on the texts :)</div>
     );
 }
 

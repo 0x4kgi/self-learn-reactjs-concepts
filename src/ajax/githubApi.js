@@ -155,9 +155,11 @@ class QueryDisplay extends React.Component {
                         <b>{item.full_name}</b><a href={item.html_url} target="_new">=&gt;</a><br />
                         <small>
                             {
-                                (item.description.length > maxLength)
+                                (item.description === null)
+                                ? ''
+                                : (item.description.length > maxLength)
                                     ? item.description.substring(0, maxLength - 3) + '...'
-                                    : item.description
+                                    : item.description                                
                             }
                         </small><br/>
                         <small>

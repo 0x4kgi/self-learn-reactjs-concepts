@@ -32,7 +32,7 @@ Branches are just me segregating "main" modules I learned
 
 ## Live Demo
 
-soon<sup>TM</sup>
+[On my github.io site](https://0x4kgi.github.io/self-learn-reactjs-concepts/)
 
 ## References
 

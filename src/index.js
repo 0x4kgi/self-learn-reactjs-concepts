@@ -18,18 +18,19 @@ import GitHubUsers from './ajax/githubApi.js';
 
 class WebpageRender extends React.Component {
     render() {
+        let path = window.location.pathname;
         return (
             <div className='main-div'>
                 <Router>
                     <div className='topNav'>
-                        <Link to='/app'>App</Link>
-                        <Link to='/about'>About</Link>
+                        <Link to={`${path}app`}>App</Link>
+                        <Link to={`${path}about`}>About</Link>
                     </div>
                     <div className='base-div'>
                         <Switch>
-                            <Route path='/app'><Apps /></Route>
-                            <Route path='/about'><About /></Route>
-                            <Route path='/'><NoneSelected /></Route>
+                            <Route path={'/app'}><Apps /></Route>
+                            <Route path={'/about'}><About /></Route>
+                            <Route path={'/'}><NoneSelected /></Route>
                         </Switch>
                     </div>
                 </Router>

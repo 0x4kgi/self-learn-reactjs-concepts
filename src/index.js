@@ -18,19 +18,18 @@ import GitHubUsers from './ajax/githubApi.js';
 
 class WebpageRender extends React.Component {
     render() {
-        let path = window.location.pathname;
         return (
             <div className='main-div'>
                 <Router>
                     <div className='topNav'>
-                        <Link to={`${path}app`}>App</Link>
-                        <Link to={`${path}about`}>About</Link>
+                        <Link to='/app'>App</Link>
+                        <Link to='/about'>About</Link>
                     </div>
                     <div className='base-div'>
                         <Switch>
-                            <Route path={`${path}app`}><Apps /></Route>
-                            <Route path={`${path}about`}><About /></Route>
-                            <Route path={`${path}`}><NoneSelected /></Route>
+                            <Route path='/app'><Apps /></Route>
+                            <Route path='/about'><About /></Route>
+                            <Route path='/'><NoneSelected /></Route>
                         </Switch>
                     </div>
                 </Router>
@@ -80,7 +79,7 @@ function About() {
             <div className='column side'>
                 <b>List Header</b>
                 <ol>
-                    <li>there are no links here :)</li>
+                    <li>there are no links here :]</li>
                 </ol>                
             </div>
             <div className='column middle'>

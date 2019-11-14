@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fcc06824955c1b13102307665fa030a0",
+    "revision": "cd394a3cce9bbfc8efbbca4f6c486e51",
     "url": "/self-learn-reactjs-concepts/index.html"
   },
   {
-    "revision": "a9eb83acdc70be9593d3",
+    "revision": "aa4fe6633ae1b525e7ca",
     "url": "/self-learn-reactjs-concepts/static/css/main.fa7bb4ea.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/self-learn-reactjs-concepts/static/js/2.6e090c8c.chunk.js"
   },
   {
-    "revision": "a9eb83acdc70be9593d3",
-    "url": "/self-learn-reactjs-concepts/static/js/main.8a00a721.chunk.js"
+    "revision": "aa4fe6633ae1b525e7ca",
+    "url": "/self-learn-reactjs-concepts/static/js/main.65c85d64.chunk.js"
   },
   {
     "revision": "6b693dc9ed361cf76a0e",

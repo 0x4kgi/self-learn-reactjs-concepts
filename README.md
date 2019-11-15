@@ -25,7 +25,7 @@ Branches are just me segregating "main" modules I learned
 | [5/Forms][6] | simple form |
 | [6/Routers][7] | React Routers things |
 | [7/Hooks][8] | How Hooks work |
-
+| [gh-pages][ghpage] | Branch for production/deployment (auto) | 
 ## Installation
 
 1. Clone this repository
@@ -51,6 +51,7 @@ Branches are just me segregating "main" modules I learned
 
 [HashRouter vs BrowserRouter](https://stackoverflow.com/questions/51974369/hashrouter-vs-browserrouter)
 
+[ghpage]: https://github.com/0x4kgi/self-learn-reactjs-concepts/tree/gh-pages
 [sfbooru]: https://safebooru.donmai.us
 [0]: https://github.com/0x4kgi/self-learn-reactjs-concepts/tree/master
 [1]: https://github.com/0x4kgi/self-learn-reactjs-concepts/tree/0/Hello-World

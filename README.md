@@ -1,7 +1,9 @@
+# 7/Hooks
+
 ## Branch contents
-Some text.
+
+Hooks and how they work
 
 ## I used these as reference
-https://reactjs.org/docs/hello-world.html
 
-https://reactjs.org/docs/rendering-elements.html
+[React Docs on hooks](https://reactjs.org/docs/hooks-overview.html)

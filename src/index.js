@@ -1,7 +1,24 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-const element = <b>Hello world!</b>;
+function CountingExample() {
+    const [count, setCount] = useState(0);
 
-ReactDOM.render(element, document.getElementById('root'));
+
+    return (
+        <div>
+            <p>Count {count}</p>
+            <p>
+                <button onClick={() => setCount(count + 1)}>+</button>
+                <button onClick={() => setCount(count - 1)}>-</button>
+                <button onClick={() => setCount(0)}>r</button>
+            </p>
+            <p>
+                <input type="text" onChange={() => setCount(count + 1)} />
+            </p>
+        </div>
+    );
+}
+
+ReactDOM.render(<CountingExample />, document.getElementById('root'));

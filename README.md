@@ -24,6 +24,7 @@ Branches are just me segregating "main" modules I learned
 | [4/Ajax][5] | pulls data from [Safebooru][sfbooru] |
 | [5/Forms][6] | simple form |
 | [6/Routers][7] | React Routers things |
+| [7/Hooks][8] | How Hooks work |
 
 ## Installation
 
@@ -59,3 +60,4 @@ Branches are just me segregating "main" modules I learned
 [5]: https://github.com/glnl/self-learn-reactjs-concepts/tree/4/Ajax
 [6]: https://github.com/glnl/self-learn-reactjs-concepts/tree/5/Forms
 [7]: https://github.com/glnl/self-learn-reactjs-concepts/tree/6/Routers
+[8]: https://github.com/glnl/self-learn-reactjs-concepts/tree/7/Hooks

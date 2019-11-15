@@ -1,5 +1,7 @@
 # ReactJS Practice "Playground"
 
+[![CodeFactor](https://www.codefactor.io/repository/github/glnl/self-learn-reactjs-concepts/badge)](https://www.codefactor.io/repository/github/0x4kgi/self-learn-reactjs-concepts)
+
 ## Intro
 
 yeah, repo name is literally the contents

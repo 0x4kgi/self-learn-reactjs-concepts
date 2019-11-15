@@ -44,6 +44,10 @@ Branches are just me segregating "main" modules I learned
 
 [React Routers](https://reacttraining.com/react-router/web/guides/quick-start)
 
+[Another React Routers](https://flaviocopes.com/react-router/)
+
+[HashRouter vs BrowserRouter](https://stackoverflow.com/questions/51974369/hashrouter-vs-browserrouter)
+
 [sfbooru]: https://safebooru.donmai.us
 [0]: https://github.com/0x4kgi/self-learn-reactjs-concepts/tree/master
 [1]: https://github.com/0x4kgi/self-learn-reactjs-concepts/tree/0/Hello-World

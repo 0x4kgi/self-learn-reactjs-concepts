@@ -26,9 +26,9 @@ class GitHubUsers extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        this.setState({
-            key: this.state.key + 1,
-        })
+        this.setState((prevState) => {
+            return { key: prevState.key + 1, };
+        });
     }
 
     handleOnChange(event) {

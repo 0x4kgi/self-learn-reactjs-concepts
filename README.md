@@ -1,6 +1,7 @@
 # ReactJS Practice "Playground"
 
 [![CodeFactor](https://www.codefactor.io/repository/github/glnl/self-learn-reactjs-concepts/badge)](https://www.codefactor.io/repository/github/0x4kgi/self-learn-reactjs-concepts)
+[![DeepScan grade](https://deepscan.io/api/teams/6166/projects/8021/branches/90588/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=6166&pid=8021&bid=90588)
 
 ## Intro
 

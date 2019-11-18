@@ -52,6 +52,8 @@ Branches are just me segregating "main" modules I learned
 
 [HashRouter vs BrowserRouter](https://stackoverflow.com/questions/51974369/hashrouter-vs-browserrouter)
 
+[Multiple Imports and exports](https://stackoverflow.com/questions/34648195/is-it-possible-to-do-multiple-class-imports-with-es6-babel)
+
 [ghpage]: https://github.com/0x4kgi/self-learn-reactjs-concepts/tree/gh-pages
 [sfbooru]: https://safebooru.donmai.us
 [0]: https://github.com/0x4kgi/self-learn-reactjs-concepts/tree/master

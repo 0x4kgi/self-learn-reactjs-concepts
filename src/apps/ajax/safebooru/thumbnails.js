@@ -89,15 +89,15 @@ export default class RenderThumbs extends React.Component {
         } else {
             let tagGroup = tags.split(' ');
             let tagsWithLinks = tagGroup.map(item => (
-                <>
+                <span key={item}>
                     <a 
                         href={`https://safebooru.donmai.us/posts?tags=${item}`}
                         target='_new'
                     >{item}</a>&nbsp;
-                </>
+                </span>
             ));
 
-        status = <>images with <b>{tagsWithLinks}</b> tags</>
+        status = <span>images with <b>{tagsWithLinks}</b> tags</span>
         }
 
         return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const element = <b>This is just any string tbh</b>;
 

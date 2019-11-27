@@ -1,5 +1,5 @@
-import React from 'react';
-import RenderThumbs from './safebooru/thumbnails';
+import React from "react";
+import RenderThumbs from "./safebooru/thumbnails";
 
 class SafebooruAjax extends React.Component {
     constructor(props) {
@@ -65,7 +65,7 @@ class SafebooruAjax extends React.Component {
                 />
                 <button onClick={(e) => this.buttonClick(e)}>:magnifying glass emoji:</button>
             </div>
-        )
+        );
 
         let prevButton = (this.state.pageNumber > 1)
             && <button onClick={(e) => this.turnPage(-1)}>&lt;</button>;

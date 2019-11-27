@@ -1,9 +1,9 @@
-import Hello from './local/hello';
-import Clock from './local/clock';
-import Trigger from './local/trigger';
+import Hello from "./local/hello";
+import Clock from "./local/clock";
+import Trigger from "./local/trigger";
 
-import SafebooruAjax from './ajax/ajaxTest';
-import GithubApi from './ajax/githubApi';
+import SafebooruAjax from "./ajax/ajaxTest";
+import GithubApi from "./ajax/githubApi";
 
 export {
     Hello, 

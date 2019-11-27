@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class GitHubUsers extends React.Component {
     _isMounted = false;
@@ -38,7 +38,7 @@ class GitHubUsers extends React.Component {
 
         this.setState({
             [name]: value,
-        })
+        });
     }
 
     render() {
@@ -92,7 +92,7 @@ class QueryDisplay extends React.Component {
         
         if (tp.search !== "") {
             this.setState({
-                search: tp.search.split(' ').join('+'),
+                search: tp.search.split(" ").join("+"),
                 type: tp.type,
                 sort: tp.sort,
             }, this.setStateComplete);
@@ -101,10 +101,10 @@ class QueryDisplay extends React.Component {
 
     setStateComplete() {
         const ts = this.state;
-        const githubApiURL = `https://api.github.com/search/${ts.type}?q=${ts.search}&sort=${ts.sort}`
+        const githubApiURL = `https://api.github.com/search/${ts.type}?q=${ts.search}&sort=${ts.sort}`;
         
         if (this._isMounted) {
-            fetch(githubApiURL).then(res => res.json()).then(
+            fetch(githubApiURL).then((res) => res.json()).then(
                 (result) => {
                     var partialState = {};
 
@@ -144,9 +144,9 @@ class QueryDisplay extends React.Component {
         
         const style = {margin: "5px", height:"100px", border: "1px solid black"};
 
-        if (type === 'repositories') {
+        if (type === "repositories") {
             const maxLength = 300;
-            output = (ts.data.map(item => (
+            output = (ts.data.map((item) => (
                 <div key={item.id} style={style}>
                     <div style={{float: "left"}}>
                         <img src={item.owner.avatar_url} alt={item.owner.id} width="75px"/> 
@@ -156,9 +156,9 @@ class QueryDisplay extends React.Component {
                         <small>
                             {
                                 (item.description === null)
-                                ? ''
+                                ? ""
                                 : (item.description.length > maxLength)
-                                    ? item.description.substring(0, maxLength - 3) + '...'
+                                    ? item.description.substring(0, maxLength - 3) + "..."
                                     : item.description                                
                             }
                         </small><br/>
@@ -171,8 +171,8 @@ class QueryDisplay extends React.Component {
                     </div>                   
                 </div>                    
             )));
-        } else if (type === 'users') {
-            output = (ts.data.map(item => (
+        } else if (type === "users") {
+            output = (ts.data.map((item) => (
                 <div key={item.id} style={style}>
                     <div style={{float: "left"}}>
                         <img src={item.avatar_url} alt={item.id} width="75px"/>
@@ -198,14 +198,14 @@ function SortByOptions(props) {
     let type = props.type;
     let options = [];
 
-    if (type === 'repositories') {
+    if (type === "repositories") {
         options.push(
             <option value="stars" key="stars">Stars</option>,
             <option value="forks" key="forks">Forks</option>,
             <option value="help-wanted-issues" key="help-wanted-issues">Issues</option>,
             <option value="updated" key="updated">Updated</option>,
         );
-    } else if (type === 'users') {
+    } else if (type === "users") {
         options.push(
             <option value="followers" key="followers">Followers</option>,
             <option value="repositories" key="repositories">Repositories</option>,

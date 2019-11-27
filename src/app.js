@@ -1,11 +1,11 @@
-import React from 'react';
-import { withRouter } from 'react-router';
+import React from "react";
+import { withRouter } from "react-router";
 import {
     Link, 
     Switch,
     Route,
     //useParams
-} from 'react-router-dom';
+} from "react-router-dom";
 
 import {
     Hello, 
@@ -13,11 +13,11 @@ import {
     Trigger, 
     SafebooruAjax, 
     GithubApi
-} from './apps';
+} from "./apps";
 
-import { NoneSelected } from './default';
+import { NoneSelected } from "./default";
 
-import Layout from './layout';
+import Layout from "./layout";
 
 class Apps extends React.Component {
     render() {
@@ -47,7 +47,7 @@ class Apps extends React.Component {
                     <Route path={`${match.path}/toggle`}><Trigger /></Route>
                     <Route path={`${match.path}/safebooru`}><SafebooruAjax /></Route>
                     <Route path={`${match.path}/github`}><GithubApi /></Route>
-                    <Route path={match.path}><NoneSelected inside='false'/></Route>                    
+                    <Route path={match.path}><NoneSelected inside="false"/></Route>                    
                 </Switch>
             </Layout>
         );

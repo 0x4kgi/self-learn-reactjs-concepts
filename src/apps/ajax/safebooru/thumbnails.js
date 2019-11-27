@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export default class RenderThumbs extends React.Component {
     _isMounted = false;
@@ -11,7 +11,7 @@ export default class RenderThumbs extends React.Component {
             tags: "",
             page: 1,
             data: [],
-        }
+        };
     }
 
     componentDidMount() {
@@ -36,7 +36,7 @@ export default class RenderThumbs extends React.Component {
         const apiURL = `https://safebooru.donmai.us/posts.json?tags=${tags}&limit=${limit}&page=${page}`;
 
         fetch(apiURL)
-            .then(res => res.json())
+            .then((res) => res.json())
             .then(
                 (result) => {
                     if (this._isMounted) {
@@ -85,14 +85,14 @@ export default class RenderThumbs extends React.Component {
 
         let status;
         if (tags.length === 0) {
-            status = 'Showing the most recent posts';
+            status = "Showing the most recent posts";
         } else {
-            let tagGroup = tags.split(' ');
-            let tagsWithLinks = tagGroup.map(item => (
+            let tagGroup = tags.split(" ");
+            let tagsWithLinks = tagGroup.map((item) => (
                 <span key={item}>
                     <a 
                         href={`https://safebooru.donmai.us/posts?tags=${item}`}
-                        target='_new'
+                        target="_new"
                     >{item}</a>&nbsp;
                 </span>
             ));
@@ -104,11 +104,11 @@ export default class RenderThumbs extends React.Component {
             <div className="imageGallery" >
                 Loaded {data.length} {status} (page: {this.state.page})<br />
                 <div>
-                    {data.map(item => (
+                    {data.map((item) => (
                         <a
                             href={"https://safebooru.donmai.us/posts/" + item.id} 
                             target="_new" 
-                            key={'link'+item.id}
+                            key={"link"+item.id}
                         ><img 
                             src={item.preview_file_url} 
                             alt={item.id}

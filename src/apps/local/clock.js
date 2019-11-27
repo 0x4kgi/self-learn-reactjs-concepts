@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 
 class Clock extends React.Component {
@@ -7,7 +7,7 @@ class Clock extends React.Component {
 
         this.state = {
             date: new Date(),
-        }
+        };
     }
 
     componentDidMount() {

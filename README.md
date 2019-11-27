@@ -2,6 +2,7 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/glnl/self-learn-reactjs-concepts/badge)](https://www.codefactor.io/repository/github/0x4kgi/self-learn-reactjs-concepts)
 [![DeepScan grade](https://deepscan.io/api/teams/6166/projects/8021/branches/90588/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=6166&pid=8021&bid=90588)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6a536c85029d40fdbf426a8373fb4c0b)](https://www.codacy.com/manual/glnl/self-learn-reactjs-concepts?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=0x4kgi/self-learn-reactjs-concepts&amp;utm_campaign=Badge_Grade)
 
 ## Intro
 
@@ -15,24 +16,25 @@ yeah. :)
 
 Branches are just me segregating "main" modules I learned
 
-| Branch Name | Description |
-| --- | --- |
-| [master][0] | combination of everything in one page |
-| [0/Hello-World][1] | just a simple output of a strings |
-| [1/Basic-Functions][2] | functions() |
+| Branch Name                | Description                                |
+| ---                        | ---                                        |
+| [master][0]                | combination of everything in one page      |
+| [0/Hello-World][1]         | just a simple output of a strings          |
+| [1/Basic-Functions][2]     | functions()                                |
 | [2/State-and-Lifecycle][3] | displays a clock that ticks (in realtime!) |
-| [3/Events][4] | button that does something simple |
-| [4/Ajax][5] | pulls data from [Safebooru][sfbooru] |
-| [5/Forms][6] | simple form |
-| [6/Routers][7] | React Routers things |
-| [7/Hooks][8] | How Hooks work |
-| [gh-pages][ghpage] | Branch for production/deployment (auto) | 
+| [3/Events][4]              | button that does something simple          |
+| [4/Ajax][5]                | pulls data from [Safebooru][sfbooru]       |
+| [5/Forms][6]               | simple form                                |
+| [6/Routers][7]             | React Routers things                       |
+| [7/Hooks][8]               | How Hooks work                             |
+| [gh-pages][ghpage]         | Branch for production/deployment (auto)    | 
+
 ## Installation
 
-1. Clone this repository
-2. `cd` to this repository on node.js cli or git bash
-3. `npm install`
-4. `npm start`
+ 1. Clone this repository
+ 2. `cd` to this repository on node.js cli or git bash
+ 3. `npm install`
+ 4. `npm start`
 
 ## Live Demo
 

@@ -1,6 +1,6 @@
 {
   "name": "webapp-playground",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "homepage": "https://glnl.github.io/self-learn-reactjs-concepts",
   "dependencies": {

@@ -36,7 +36,7 @@ class Apps extends React.Component {
                     </ol>
                     <b>API Requests</b>
                     <ol>
-                        <li><Link to={`${match.url}/safebooru`}>Safebooru</Link></li>
+                        <li><Link to={`${match.url}/booru`}>*booru</Link></li>
                         <li><Link to={`${match.url}/github`}>GitHub</Link></li>
                     </ol>
                 </div>
@@ -45,7 +45,7 @@ class Apps extends React.Component {
                     <Route path={`${match.path}/hello`}><Hello /></Route>
                     <Route path={`${match.path}/clock`}><Clock /></Route>
                     <Route path={`${match.path}/toggle`}><Trigger /></Route>
-                    <Route path={`${match.path}/safebooru`}><SafebooruAjax /></Route>
+                    <Route path={`${match.path}/booru`}><SafebooruAjax /></Route>
                     <Route path={`${match.path}/github`}><GithubApi /></Route>
                     <Route path={match.path}><NoneSelected inside="false"/></Route>                    
                 </Switch>

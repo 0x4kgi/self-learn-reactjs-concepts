@@ -6,6 +6,7 @@ class SafebooruAjax extends React.Component {
         super(props);
 
         this.state = {
+            source: "safebooru",
             limit: 20,
             tags: "scenery no_human",
             pageNumber: 1,
@@ -49,6 +50,18 @@ class SafebooruAjax extends React.Component {
     render() {
         var toggles = (
             <div className="_inputHolder">
+                Source:
+                <select 
+                    name="source"
+                    value={this.state.source}
+                    onChange={(e) => {
+                        this.handleInputChange(e);
+                        this.buttonClick(e);
+                    }}
+                >
+                    <option value="safebooru">Safebooru</option>
+                    <option value="danbooru">Danbooru</option>
+                </select>
                 Tags:
                 <input 
                     name="tags"
@@ -83,7 +96,8 @@ class SafebooruAjax extends React.Component {
         return (
             <div className="text-center">
                 {toggles}
-                <RenderThumbs 
+                <RenderThumbs
+                    source={this.state.source}
                     tags={this.state.tags}
                     page={this.state.pageNumber}
                     limit={this.state.limit} 

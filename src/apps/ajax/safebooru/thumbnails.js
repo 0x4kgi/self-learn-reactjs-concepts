@@ -9,6 +9,7 @@ export default class RenderThumbs extends React.Component {
             error: null,
             limit: 10,
             tags: "",
+            source: "safebooru",
             page: 1,
             data: [],
         };
@@ -20,6 +21,7 @@ export default class RenderThumbs extends React.Component {
         this.setState({
             limit: this.props.limit,
             tags: this.props.tags,
+            source: this.props.source,
             page: this.props.page,
         }, this.apiGrab);
     }
@@ -32,8 +34,9 @@ export default class RenderThumbs extends React.Component {
         let limit = this.props.limit;
         let tags = this.props.tags;
         let page = this.props.page;
+        let source = this.props.source;
 
-        const apiURL = `https://safebooru.donmai.us/posts.json?tags=${tags}&limit=${limit}&page=${page}`;
+        const apiURL = `https://${source}.donmai.us/posts.json?tags=${tags}&limit=${limit}&page=${page}`;
 
         fetch(apiURL)
             .then((res) => res.json())
@@ -67,7 +70,7 @@ export default class RenderThumbs extends React.Component {
     }
 
     render() {
-        const {error, isLoaded, data, tags} = this.state;
+        const {error, isLoaded, data, tags, source} = this.state;
 
         if (error) {
             return (
@@ -91,7 +94,7 @@ export default class RenderThumbs extends React.Component {
             let tagsWithLinks = tagGroup.map((item) => (
                 <span key={item}>
                     <a 
-                        href={`https://safebooru.donmai.us/posts?tags=${item}`}
+                        href={`https://${source}.donmai.us/posts?tags=${item}`}
                         target="_new"
                     >{item}</a>&nbsp;
                 </span>
@@ -106,7 +109,7 @@ export default class RenderThumbs extends React.Component {
                 <div>
                     {data.map((item) => (
                         <a
-                            href={"https://safebooru.donmai.us/posts/" + item.id} 
+                            href={`https://${source}.donmai.us/posts/` + item.id} 
                             target="_new" 
                             key={"link"+item.id}
                         ><img 

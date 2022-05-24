@@ -34,7 +34,7 @@ Branches are just me segregating "main" modules I learned
 
 ## Live Demo
 
-[On my github.io site](https://glnl.github.io/self-learn-reactjs-concepts/)
+[On my github.io site](https://0x4kgi.github.io/self-learn-reactjs-concepts/)
 
 ## References
 
